@@ -4,6 +4,11 @@ import BarChart from "./components/BarChart";
 import Form from "./components/Form";
 
 class App extends Component {
+
+  componentDidMount() {
+    this.setState({ costs: this.costs(this.state.electricityPrice) });
+  }
+
   constructor() {
     super();
     this.state = {
@@ -27,7 +32,6 @@ class App extends Component {
   onSetPrice = e => {
     const newPrice = parseFloat(e.target.value);
     console.log("newPrice", newPrice);
-
     this.setState({ electricityPrice: newPrice, costs: this.costs(newPrice) });
   };
 
@@ -50,7 +54,6 @@ class App extends Component {
               width={600}
               height={300}
               costs={this.state.costs}
-              id={this.state.costs[0]}
             />
           </div>
         </div>
