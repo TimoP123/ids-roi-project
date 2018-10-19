@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
-import BarChart from "./components/BarChart";
 import Form from "./components/Form";
+import BarChart from "./components/BarChart";
+import Results from "./components/Results";
 
 class App extends Component {
 
@@ -15,7 +16,7 @@ class App extends Component {
       startYear: 2015,
       endYear: 2019,
       electricityPrice: 0.12,
-      costs: [0]
+      costs: []
     };
   }
 
@@ -55,6 +56,7 @@ class App extends Component {
               height={300}
               costs={this.state.costs}
             />
+            <Results />
           </div>
         </div>
       </div>
