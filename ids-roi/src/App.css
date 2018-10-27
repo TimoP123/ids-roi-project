@@ -9,18 +9,22 @@
 }
 
 .roi-view {
+  width: 100%;
   display: flex;
   border: 1px solid gray;
 }
 
 .form {
-  flex: 0.3;
+  flex: 0.25;
   border: 1px solid blue;
   min-height: 500px;
 }
 
 .graphs {
-  flex: 0.7;
   border: 1px solid green;
-  min-height: 500px;
+  min-height: 350px;
+}
+
+.right {
+  flex: 0.75;
 }
