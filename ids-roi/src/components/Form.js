@@ -84,6 +84,7 @@ class Form extends Component {
                     onChange={onSetGshpPrice}
                   />
                 </td>
+                <td className="thirdColumn">€</td>
               </tr>
             )}
             {gshpOn && (
@@ -99,6 +100,7 @@ class Form extends Component {
                     onChange={onSetSavings}
                   />
                 </td>
+                <td className="thirdColumn">kWh</td>
               </tr>
             )}
             {gshpOn && (

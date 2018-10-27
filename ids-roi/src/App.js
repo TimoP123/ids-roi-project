@@ -49,6 +49,8 @@ class App extends Component {
         (gshpYear - this.state.startYear) +
         4;
     }
+    console.log(endYear);
+    if (endYear - this.state.startYear > 500 || isNaN(endYear)) return [];
 
     for (let year = this.state.startYear; year <= endYear; year++) {
       labels.push(year);
@@ -75,13 +77,18 @@ class App extends Component {
       datasets: [
         {
           label: "Cost without investments",
+          backgroundColor: "rgba(192, 192, 192, 0.4)",
           data: costs
         }
       ]
     };
 
     if (costsGshp.length > 1) {
-      data.datasets.push({ label: "Costs with GSHP", data: costsGshp });
+      data.datasets.push({
+        label: "Costs with Ground-Source Heat Pump",
+        backgroundColor: "rgba(75,192,192, 0.4)",
+        data: costsGshp
+      });
     }
 
     return data;
@@ -219,13 +226,16 @@ class App extends Component {
               <Chart data={this.state.data} />
             </div>
             <Results
+              className="results"
               electricityPrice={this.state.electricityPrice}
               yearConsumption={this.state.yearConsumption}
+              savings={this.state.gshpSavings}
               roiTime={this.roiTime(
                 this.state.gshpPrice,
                 this.state.electricityPrice,
                 this.state.gshpSavings
               )}
+              gshpOn={this.state.gshpOn}
             />
           </div>
         </div>
